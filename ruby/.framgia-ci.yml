@@ -15,4 +15,4 @@ test:
   eslint:
     command: eslint --format=checkstyle --output-file=.framgia-ci-reports/eslint.xml app/
   rails_best_practices:
-    command: rails_best_practices -e "db/schema.rb,db/migrate,vendor" --format html --output-file .framgia-ci-reports/rails_best_practices.html app/
+    command: rails_best_practices -e "db/schema.rb,db/migrate,vendor,app/models/application_record.rb" --format html --output-file .framgia-ci-reports/rails_best_practices.html app/
