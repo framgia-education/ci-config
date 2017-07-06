@@ -294,6 +294,10 @@ Layout/IndentHash:
     - special_inside_parentheses
     - consistent
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
 Style/LambdaCall:
   EnforcedStyle: call
   SupportedStyles:
