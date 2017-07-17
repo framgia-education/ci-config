@@ -121,7 +121,7 @@ Style/DefWithParentheses:
   Description: "Use def with parentheses when there are arguments."
   Enabled: true
 
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
   Description: "Checks for use of deprecated Hash methods."
   Enabled: true
 
@@ -265,7 +265,7 @@ Metrics/LineLength:
   Description: "Limit lines to 80 characters."
   Enabled: true
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Description: "Do not use parentheses for method calls with no arguments."
   Enabled: true
 
@@ -417,7 +417,7 @@ Style/SingleLineMethods:
   Description: "Avoid single-line methods."
   Enabled: true
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Description: >-
                  Checks that exactly one space is used between a method name
                  and the first argument for method calls without parentheses.
@@ -431,8 +431,8 @@ Style/SpaceAfterComma:
   Description: "Use spaces after commas."
   Enabled: true
 
-Style/SpaceAfterControlKeyword:
-  Description: "Use spaces after if/elsif/unless/while/until/case/when."
+Style/SpaceAroundKeyword:
+  Description: "Checks the spacing around the keywords."
   Enabled: true
 
 Style/SpaceAfterMethodName:
@@ -487,10 +487,6 @@ Style/SpaceAroundOperators:
   Description: "Use spaces around operators."
   Enabled: true
 
-Style/SpaceBeforeModifierKeyword:
-  Description: "Put a space before the modifier keyword."
-  Enabled: true
-
 Style/SpaceInsideBrackets:
   Description: "No spaces after [ or before ]."
   Enabled: true
@@ -519,9 +515,13 @@ Style/TrailingBlankLines:
   Description: "Checks trailing blank lines and final newline."
   Enabled: true
 
-Style/TrailingComma:
-  Description: "Checks for trailing comma in parameter lists and literals."
+Style/TrailingCommaInArguments:
+  Description: "Checks for trailing comma in argument lists."
   Enabled: true
+
+Style/TrailingCommaInLiteral:
+  Description: "Checks for trailing comma in array and hash literals."
+  Enabled: true  
 
 Style/TrailingWhitespace:
   Description: "Avoid trailing whitespace."
@@ -736,10 +736,6 @@ Lint/Void:
 
 Rails/ActionFilter:
   Description: "Enforces consistent use of action filter methods."
-  Enabled: true
-
-Rails/DefaultScope:
-  Description: "Checks if the argument passed to default_scope is a block."
   Enabled: true
 
 Rails/Delegate:
