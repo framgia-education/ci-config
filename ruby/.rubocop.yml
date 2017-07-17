@@ -21,7 +21,8 @@ AllCops:
     - 'config/**/*'
   # By default, the rails cops are not run. Override in project or home
   # directory .rubocop.yml files, or by giving the -R/--rails option.
-  RunRailsCops: false
+Rails:
+  Enabled: true
 
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
@@ -129,7 +130,7 @@ Style/BracesAroundHashParameters:
 
 # Indentation of `when`.
 Style/CaseIndentation:
-  IndentWhenRelativeTo: case
+  EnforcedStyle: case
   SupportedStyles:
     - case
     - end
@@ -437,15 +438,29 @@ Style/TrailingBlankLines:
     - final_newline
     - final_blank_line
 
-Style/TrailingComma:
-  # If EnforcedStyleForMultiline is comma, the cop allows a comma after the
-  # last item of a list, but only for lists where each item is on its own line.
+Style/TrailingCommaInArguments:
+  # If `comma`, the cop requires a comma after the last argument, but only for
+  # parenthesized method calls where each argument is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last argument,
+  # for all parenthesized method calls with arguments.
   EnforcedStyleForMultiline: no_comma
-  SupportedStyles:
+  SupportedStylesForMultiline:
     - comma
+    - consistent_comma
     - no_comma
 
-# TrivialAccessors doesn't require exact name matches and doesn't allow
+Style/TrailingCommaInLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+
+# TrivialAccessors requires exact name matches and doesn't allow
 # predicated methods by default.
 Style/TrivialAccessors:
   ExactNameMatch: false
@@ -503,18 +518,21 @@ Lint/EndAlignment:
   # The value `variable` means that in assignments, `end` should be aligned
   # with the start of the variable on the left hand side of `=`. In all other
   # situations, `end` should still be aligned with the keyword.
-  AlignWith: keyword
-  SupportedStyles:
+  # The value `start_of_line` means that `end` should be aligned with the start
+  # of the line which the matching keyword appears on.
+  EnforcedStyleAlignWith: keyword
+  SupportedStylesAlignWith:
     - keyword
     - variable
+    - start_of_line
 
 Lint/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
-  AlignWith: start_of_line
-  SupportedStyles:
+  EnforcedStyleAlignWith: start_of_line
+  SupportedStylesAlignWith:
     - start_of_line
     - def
 
@@ -527,10 +545,6 @@ Rails/ActionFilter:
     - filter
   Include:
     - app/controllers/**/*.rb
-
-Rails/DefaultScope:
-  Include:
-    - app/models/**/*.rb
 
 Rails/HasAndBelongsToMany:
   Include:
