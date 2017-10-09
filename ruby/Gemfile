@@ -12,11 +12,10 @@ group :development, :test do
   gem "brakeman", require: false
   gem "jshint"
   gem "bundler-audit"
-  gem "rubocop", "~> 0.35.0", require: false
+  gem "rubocop", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
   gem "scss_lint_reporter_checkstyle", require: false
-  gem "eslint-rails"
   gem "rails_best_practices"
   gem "reek"
   gem "railroady"
